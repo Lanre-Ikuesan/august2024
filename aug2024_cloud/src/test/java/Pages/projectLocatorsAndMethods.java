@@ -1,13 +1,15 @@
 package Pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class projectLocatorsAndMethods {
 
-    // Declare selectors/locators here
+
+    // Selectors/locators
 
     @FindBy(how = How.ID, using = "email")
     public static WebElement login_email;
@@ -21,7 +23,10 @@ public class projectLocatorsAndMethods {
     @FindBy(how = How.CLASS_NAME, using = "logged-in")
     public static WebElement LoggedIn;
 
-    //Declare methods here
+    @FindBy(how = How.CLASS_NAME, using = "messages")
+    public static WebElement InvalidLoginMessage;
+
+    //Methods
     public void enterEmail() { login_email.sendKeys("nasiressuman@yahoo.com");
     }
 
@@ -33,11 +38,25 @@ public class projectLocatorsAndMethods {
         Thread.sleep(3000);
     }
 
+    public void enterExampleEmail(String username) throws Throwable {
+        login_email.sendKeys(username);
+    }
+
+    public void enterExamplePassword(String Password) throws Throwable {
+        login_password.sendKeys(Password);
+    }
+
     public void assertLoggedInUser() {
         String ExpectedLoggedInUser = "Welcome, Kofi Essuman!";
         String ActualLoggedInUser = LoggedIn.getText();
         Assert.assertEquals(ExpectedLoggedInUser, ActualLoggedInUser);
         System.out.println(ActualLoggedInUser);
 
+    }
+    public void AssertInvalidLoginMessage() {
+        String ExpectederrorMessage = "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.";
+        String ActualerrorMessage = InvalidLoginMessage.getText();
+        Assert.assertEquals(ExpectederrorMessage, ActualerrorMessage);
+        System.out.println(ActualerrorMessage);
     }
 }
