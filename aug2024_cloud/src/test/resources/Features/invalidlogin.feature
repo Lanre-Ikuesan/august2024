@@ -1,8 +1,11 @@
 Feature: Login
 
+  Background:
+    Given I navigate to the login page
+
   Scenario Outline: Users with incorrect credentials should be unsuccessful
 
-    Given I am on the login page
+
     When I type in my "<username>"
     And I provide my "<Password>"
     When attempt to log in
