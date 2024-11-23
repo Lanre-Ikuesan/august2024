@@ -1,12 +1,11 @@
 package Pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class MyLocatorsAndMethods {
+public class projectLocatorsAndMethods {
     public int random;
     //declare your selectors/locators
     @FindBy(how = How.XPATH, using = " //input[@id=\"firstname\"]")
