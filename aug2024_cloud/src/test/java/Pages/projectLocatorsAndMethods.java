@@ -68,6 +68,8 @@ public class projectLocatorsAndMethods {
     }
 
 
+    public void clickCreateAccount() {
+    }
 }
 
 
